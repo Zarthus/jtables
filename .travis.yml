@@ -1,0 +1,31 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+sudo: false
+
+cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
+
+before_install:
+  - pip install --user codecov
+
+script:
+  - mvn test
+
+after_success:
+  - if [[ "x$TRAVIS_BRANCH" == "xmaster" ]]; then [[ "x$CODECOV_TOKEN" != "x" ]] && codecov -t $CODECOV_TOKEN || codecov; fi
+
+notifications:
+  email:
+    - buughost+travis@gmail.com
+  irc:
+    channels:
+      - 'irc.esper.net#netirc'
+    template:
+      - '%{repository}#%{build_number} (%{branch} - %{commit}) %{author}: %{message} - %{build_url}'
+    on_failure: always
+    on_success: change
