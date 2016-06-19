@@ -23,8 +23,12 @@
 package org.netirc.library.jtables.util;
 
 public class TableStringUtil {
-    public static String padString(String str, int padLength) {
+    public static String pad(String str, int padLength) {
         int spacing = padLength - str.length();
+
+        if (spacing < 0) {
+            return str;
+        }
 
         return str + repeat(" ", spacing);
     }

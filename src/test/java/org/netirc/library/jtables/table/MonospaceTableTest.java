@@ -22,6 +22,45 @@
 
 package org.netirc.library.jtables.table;
 
+import org.junit.Assert;
+import org.junit.Test;
+import org.netirc.library.jtables.JTablesBuilder;
+import org.netirc.library.jtables.exception.MalformedTableException;
+import org.netirc.library.jtables.util.TableHelper;
+
 public class MonospaceTableTest {
+    @Test
+    public void renderMethodCalledDependsOnRowCountHorizontal() {
+        JTablesBuilder<MonospaceTable> builder = MonospaceTable.build();
+        MonospaceTable table;
+
+        try {
+            TableHelper.fillTableDataKeyValue(builder);
+            table = builder.getTable();
+        } catch (MalformedTableException e) {
+            table = null;
+        }
+
+        Assert.assertNotNull(table);
+        Assert.assertEquals(table.renderHorizontal(), table.render());
+    }
+
+    @Test
+    public void renderMethodCalledDependsOnRowCountVertical() {
+        JTablesBuilder<MonospaceTable> builder = MonospaceTable.build();
+        MonospaceTable table;
+
+        try {
+            TableHelper.fillTableBigData(builder, 5, 6, 30, 40);
+            table = builder.getTable();
+        } catch (MalformedTableException e) {
+            table = null;
+        }
+
+        Assert.assertNotNull(table);
+        Assert.assertEquals(table.renderVertical(), table.render());
+        System.out.println(table.toStringVertical());
+        System.out.println(table.toStringHorizontal());
+    }
 
 }
