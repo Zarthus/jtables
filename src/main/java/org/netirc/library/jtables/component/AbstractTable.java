@@ -76,11 +76,19 @@ abstract public class AbstractTable implements TableInterface {
     }
 
     public void addRow(List<String> rowItems) throws MalformedTableException {
-        if (!isPermitEmptyRowItems() && rowItems.size() != columnCount()) {
-            throw new MalformedTableException(
-                "Permittance of empty columns is false, yet tried to add non equal row item count versus column count, " +
-                "rowItems.size() = " + rowItems.size() + ", columns.size() = " + columnCount()
-            );
+        if (!isPermitEmptyRowItems()) {
+            if (rowItems.size() != columnCount()) {
+                throw new MalformedTableException(
+                    "Permittance of empty columns is false, yet tried to add non equal row item count versus column count, " +
+                        "rowItems.size() = " + rowItems.size() + ", columns.size() = " + columnCount()
+                );
+            }
+
+            for (String item : rowItems) {
+                if (item == null || item.isEmpty()) {
+                    throw new MalformedTableException("Table Row Items may not be null or empty.");
+                }
+            }
         }
 
         rows.add(rowItems);

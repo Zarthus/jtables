@@ -24,7 +24,6 @@ package org.netirc.library.jtables;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.netirc.library.jtables.component.AbstractTable;
 import org.netirc.library.jtables.exception.MalformedTableException;
 import org.netirc.library.jtables.table.PlainTable;
 import org.netirc.library.jtables.util.TableHelper;
@@ -33,7 +32,7 @@ public class TableCachingTest {
     @Test
     public void cacheResult() {
         JTablesBuilder<PlainTable> builder = PlainTable.build();
-        AbstractTable table;
+        PlainTable table;
 
         try {
             builder.cacheResult();
