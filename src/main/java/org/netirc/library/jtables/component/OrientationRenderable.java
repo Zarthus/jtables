@@ -25,6 +25,6 @@ package org.netirc.library.jtables.component;
 import java.util.List;
 
 public interface OrientationRenderable {
-    public List<String> renderHorizontal();
-    public List<String> renderVertical();
+    List<String> renderHorizontal();
+    List<String> renderVertical();
 }
