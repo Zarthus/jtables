@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/netirc/jtables/branch/master/graph/badge.svg?token=5lx0UPnByX)](https://codecov.io/gh/netirc/jtables)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
-jtables (Java Tables) is a small library that helps you generate tablular output in various predefined formats.
+JTables (Java Tables) is a small library that helps you generate tablular output in various predefined formats.
 
 ## Example Code
 
