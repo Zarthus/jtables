@@ -47,4 +47,14 @@ public class UnicodeMonospaceTable extends AbstractTable implements OrientationR
     public List<String> renderVertical() {
         return null;
     }
+
+    @Override
+    public String toStringVertical() {
+        return null;
+    }
+
+    @Override
+    public String toStringHorizontal() {
+        return null;
+    }
 }

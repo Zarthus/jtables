@@ -20,14 +20,8 @@
  * SOFTWARE.
  */
 
-package org.netirc.library.jtables.component;
+package org.netirc.library.jtables.table;
 
-import java.util.List;
+public class MonospaceTableTest {
 
-public interface OrientationRenderable {
-    List<String> renderHorizontal();
-    List<String> renderVertical();
-
-    String toStringVertical();
-    String toStringHorizontal();
 }

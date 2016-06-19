@@ -20,14 +20,30 @@
  * SOFTWARE.
  */
 
-package org.netirc.library.jtables.component;
+package org.netirc.library.jtables.util;
 
-import java.util.List;
+public class TableStringUtil {
+    public static String padString(String str, int padLength) {
+        int spacing = padLength - str.length();
 
-public interface OrientationRenderable {
-    List<String> renderHorizontal();
-    List<String> renderVertical();
+        return str + repeat(" ", spacing);
+    }
 
-    String toStringVertical();
-    String toStringHorizontal();
+    public static String repeat(String append, int times) {
+        append = new String(new char[times]).replace("\0", append);
+
+        return append;
+    }
+
+    public static String truncuate(String s, int maximumLength) {
+        return truncuate(s, maximumLength, "..");
+    }
+
+    public static String truncuate(String s, int maximumLength, String append) {
+        if (s.length() > maximumLength) {
+            return s.substring(0, maximumLength - append.length()) + append;
+        }
+
+        return s;
+    }
 }

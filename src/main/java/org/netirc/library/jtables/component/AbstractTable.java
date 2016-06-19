@@ -109,6 +109,10 @@ abstract public class AbstractTable implements TableInterface {
         return columns.size();
     }
 
+    public void clearCache() {
+        renderCacheResult = null;
+    }
+
     public String toString() {
         return String.join("\n", render());
     }
