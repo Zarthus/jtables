@@ -71,36 +71,3 @@ public class MyTable extends AbstractTable {
     }
 }
 ```
-
-## Base Code (AbstractTable)
-
-```java
-package your.pkg;
-
-import org.netirc.library.jtables.JTablesBuilder;
-import org.netirc.library.jtables.component.AbstractTable;
-
-public class MyTable extends AbstractTable {
-    public static JTablesBuilder<PlainTable> build() {
-        return new JTablesBuilder<>(new MyTable());
-    }
-
-    @Override
-    public List<String> render() {
-        if (isCached()) {
-            return cache();
-        }
-
-        List<String> render = new ArrayList<>();
-
-        if (isEmpty()) {
-            render.add(getClass().getSimpleName() + ": There is nothing to display.");
-            return render;
-        }
-
-        // TODO: Make something beautiful!
-
-        return cache(render);
-    }
-}
-```
