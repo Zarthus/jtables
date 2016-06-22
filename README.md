@@ -3,14 +3,48 @@
 [![codecov](https://codecov.io/gh/netirc/jtables/branch/master/graph/badge.svg?token=5lx0UPnByX)](https://codecov.io/gh/netirc/jtables)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
-JTables (Java Tables) is a small library that helps you generate tablular output in various predefined formats.
+JTables (Java Tables) is a small and lightweight library that helps you generate tablular output in various predefined formats.
 
 ## Example Code
 
 ```java
+import org.netirc.library.jtables.JTablesBuilder;
+import org.netirc.library.jtables.exception.MalformedTableException;
+import org.netirc.library.jtables.table.MonospaceTable;
 
+public class MyCoolTable {
+    public MyCoolTable() {
+        JTablesBuilder<MonospaceTable> builder = MonospaceTable.build();
+        MonospaceTable table;
+
+        try {
+            builder.columns("Service", "Offers API", "Website")
+                .row("GitHub", "Yes", "https://github.com")
+                .row("BitBucket", "Yes", "https://bitbucket.com")
+                .row("GitLab", "Yes", "https://gitlab.com");
+        } catch (MalformedTableException e) {
+            // TODO: Handle error, we goofed up our table.
+        }
+
+        table = builder.getTable();
+        System.out.println(table.toString());
+    }
+}
+```
+
+Produces:
 
 ```
++-----------------------------------------------------------------------+
+| Service               | Offers API            | Website               |
++-----------------------------------------------------------------------+
+| GitHub                | Yes                   | https://github.com    |
+| BitBucket             | Yes                   | https://bitbucket.com |
+| GitLab                | Yes                   | https://gitlab.com    |
++-----------------------------------------------------------------------+
+```
+
+Refer to the [documentation](docs) for example outputs and available tables.
 
 ## Picking the right table format
 
