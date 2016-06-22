@@ -13,7 +13,7 @@ import org.netirc.library.jtables.exception.MalformedTableException;
 import org.netirc.library.jtables.table.MonospaceTable;
 
 public class MyCoolTable {
-    public MyCoolTable() {
+    public static void main(String[] args) {
         JTablesBuilder<MonospaceTable> builder = MonospaceTable.build();
         MonospaceTable table;
 
@@ -22,12 +22,16 @@ public class MyCoolTable {
                 .row("GitHub", "Yes", "https://github.com")
                 .row("BitBucket", "Yes", "https://bitbucket.com")
                 .row("GitLab", "Yes", "https://gitlab.com");
+            table = builder.getTable();
         } catch (MalformedTableException e) {
-            // TODO: Handle error, we goofed up our table.
+            table = null;
         }
 
-        table = builder.getTable();
-        System.out.println(table.toString());
+        if (table != null) {
+            System.out.println(table.toString());
+        } else {
+            System.out.println("Something went wrong.");
+        }
     }
 }
 ```
