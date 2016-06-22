@@ -98,7 +98,7 @@ public class MonospaceTable extends AbstractTable implements OrientationRenderab
 
             for (String rowItem : row) {
                 item += TableStringUtil.pad(
-                    itemTpl.replace("REPL", TableStringUtil.truncuate(rowItem, columnSize - 2)), columnSize - 1
+                    itemTpl.replace("REPL", TableStringUtil.truncuate(rowItem, columnSize - 4)), columnSize - 1
                 );
             }
 

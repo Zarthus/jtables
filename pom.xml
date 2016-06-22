@@ -56,7 +56,7 @@
     </scm>
 
     <properties>
-        <mainClassName>org.netirc.library.jtables.JTable</mainClassName>
+        <mainClassName>org.netirc.library.jtables.JTablesBuilder</mainClassName>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

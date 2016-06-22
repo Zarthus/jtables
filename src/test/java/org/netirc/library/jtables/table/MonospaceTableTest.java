@@ -59,8 +59,6 @@ public class MonospaceTableTest {
 
         Assert.assertNotNull(table);
         Assert.assertEquals(table.renderVertical(), table.render());
-        System.out.println(table.toStringVertical());
-        System.out.println(table.toStringHorizontal());
     }
 
 }
