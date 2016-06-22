@@ -65,6 +65,13 @@ public class UnicodeMonospaceTable extends AbstractTable implements OrientationR
             return cache();
         }
 
+        List<String> render = new ArrayList<>();
+
+        if (isEmpty()) {
+            render.add(getClass().getSimpleName() + ": There is nothing to display.");
+            return render;
+        }
+
         int columnSize;
         if (columns.size() > 4) {
             columnSize = 160 / columns.size();
@@ -98,7 +105,6 @@ public class UnicodeMonospaceTable extends AbstractTable implements OrientationR
 
         final String itemTpl = LINE_VERTICAL + " REPL";
 
-        List<String> render = new ArrayList<>();
         render.add(rowSeparatorTop);
 
         String item = "";
@@ -135,6 +141,13 @@ public class UnicodeMonospaceTable extends AbstractTable implements OrientationR
             return cache();
         }
 
+        List<String> render = new ArrayList<>();
+
+        if (isEmpty()) {
+            render.add(getClass().getSimpleName() + ": There is nothing to display.");
+            return render;
+        }
+
         int headerLength = maxColumnLength();
         int rowLength = maxRowLength();
 
@@ -157,7 +170,6 @@ public class UnicodeMonospaceTable extends AbstractTable implements OrientationR
             + " ROWITEM "
             + LINE_VERTICAL;
 
-        List<String> render = new ArrayList<>();
         int columnIndex = 0;
 
         render.add(rowSeparatorTop);

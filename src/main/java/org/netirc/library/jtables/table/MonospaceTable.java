@@ -55,6 +55,13 @@ public class MonospaceTable extends AbstractTable implements OrientationRenderab
             return cache();
         }
 
+        List<String> render = new ArrayList<>();
+
+        if (isEmpty()) {
+            render.add(getClass().getSimpleName() + ": There is nothing to display.");
+            return render;
+        }
+
         int columnSize;
         if (columns.size() > 4) {
             columnSize = 160 / columns.size();
@@ -80,8 +87,8 @@ public class MonospaceTable extends AbstractTable implements OrientationRenderab
         final String itemTpl = LINE_VERTICAL
             + " REPL ";
 
-        List<String> render = new ArrayList<>();
         render.add(rowSeparatorTpl);
+
 
         String item = "";
         for (String column : columns) {
@@ -117,6 +124,14 @@ public class MonospaceTable extends AbstractTable implements OrientationRenderab
             return cache();
         }
 
+        List<String> render = new ArrayList<>();
+
+        if (isEmpty()) {
+            render.add(getClass().getSimpleName() + ": There is nothing to display.");
+            return render;
+        }
+
+
         int headerLength = maxColumnLength();
         int rowLength = maxRowLength();
 
@@ -131,7 +146,6 @@ public class MonospaceTable extends AbstractTable implements OrientationRenderab
             + " ROWITEM "
             + LINE_VERTICAL;
 
-        List<String> render = new ArrayList<>();
         int columnIndex = 0;
 
         render.add(rowSeparator);
