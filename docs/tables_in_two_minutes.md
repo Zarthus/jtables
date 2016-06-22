@@ -29,12 +29,12 @@ System.out.println(builder.getTable().toString());
 
 Your table needs to meet the following conditions:
 
-- Either extend `AbstractTable` or implement `TableInterface`
-    - Have a `render` method that returns a `List` of lines.
+* Either extend `AbstractTable` or implement `TableInterface`
+    * Have a `render` method that returns a `List` of lines.
 
 And may have the following:
 
-- A static `build` method that returns the right Builder to use.
+* A static `build` method that returns the right Builder to use.
 
 Caveat: `JTablesBuilder` is made for `AbstractTable`,
 `TableBuilder` is made for tables that implement `TableInterface`
