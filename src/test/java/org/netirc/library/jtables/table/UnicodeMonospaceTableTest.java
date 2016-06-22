@@ -28,11 +28,11 @@ import org.netirc.library.jtables.JTablesBuilder;
 import org.netirc.library.jtables.exception.MalformedTableException;
 import org.netirc.library.jtables.util.TableHelper;
 
-public class MonospaceTableTest {
+public class UnicodeMonospaceTableTest {
     @Test
     public void renderMethodCalledDependsOnColumnCountHorizontal() {
-        JTablesBuilder<MonospaceTable> builder = MonospaceTable.build();
-        MonospaceTable table;
+        JTablesBuilder<UnicodeMonospaceTable> builder = UnicodeMonospaceTable.build();
+        UnicodeMonospaceTable table;
 
         try {
             TableHelper.fillTableDataKeyValue(builder);
@@ -43,12 +43,14 @@ public class MonospaceTableTest {
 
         Assert.assertNotNull(table);
         Assert.assertEquals(table.renderHorizontal(), table.render());
+        System.out.println(table.toStringVertical());
+        System.out.println(table.toStringHorizontal());
     }
 
     @Test
     public void renderMethodCalledDependsOnColumnCountVertical() {
-        JTablesBuilder<MonospaceTable> builder = MonospaceTable.build();
-        MonospaceTable table;
+        JTablesBuilder<UnicodeMonospaceTable> builder = UnicodeMonospaceTable.build();
+        UnicodeMonospaceTable table;
 
         try {
             TableHelper.fillTableBigData(builder, 5, 6, 30, 40);
@@ -59,5 +61,27 @@ public class MonospaceTableTest {
 
         Assert.assertNotNull(table);
         Assert.assertEquals(table.renderVertical(), table.render());
+        System.out.println(table.toStringVertical());
+        System.out.println(table.toStringHorizontal());
+    }
+
+    @Test
+    public void shouldBeCompiledWithUtf8() {
+        JTablesBuilder<UnicodeMonospaceTable> builder = UnicodeMonospaceTable.build();
+        UnicodeMonospaceTable table;
+
+        try {
+            TableHelper.fillTableDataKeyValue(builder);
+            table = builder.getTable();
+        } catch (MalformedTableException e) {
+            table = null;
+        }
+
+        Assert.assertNotNull(table);
+
+        for (String row : table.render()) {
+            Assert.assertFalse(row.startsWith("?"));
+            Assert.assertFalse(row.endsWith("?"));
+        }
     }
 }
