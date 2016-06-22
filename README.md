@@ -5,6 +5,8 @@
 
 JTables (Java Tables) is a small and lightweight library that helps you generate tablular output in various predefined formats.
 
+JTables requires Java version 8 or higher.
+
 ## Example Code
 
 ```java
