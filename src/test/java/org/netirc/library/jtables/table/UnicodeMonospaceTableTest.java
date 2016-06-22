@@ -43,8 +43,6 @@ public class UnicodeMonospaceTableTest {
 
         Assert.assertNotNull(table);
         Assert.assertEquals(table.renderHorizontal(), table.render());
-        System.out.println(table.toStringVertical());
-        System.out.println(table.toStringHorizontal());
     }
 
     @Test
@@ -61,8 +59,6 @@ public class UnicodeMonospaceTableTest {
 
         Assert.assertNotNull(table);
         Assert.assertEquals(table.renderVertical(), table.render());
-        System.out.println(table.toStringVertical());
-        System.out.println(table.toStringHorizontal());
     }
 
     @Test
