@@ -3,6 +3,19 @@
 ## Code
 
 ```java
+JTablesBuilder<CompactTable> builder = CompactTable.build();
+CompactTable table;
+
+try {
+    // Fill the table.
+    table = builder.getTable();
+} catch (MalformedTableException e) {
+    table = null;
+}
+
+if (table != null) {
+    // Use table. For example: System.out.println(table.toString());
+}
 ```
 
 ## Output
@@ -10,8 +23,10 @@
 The format is a comma-separated line of `Column: RowItem` for each row.
 
 ```
-Column 1: Hello Earth, Column 2: Hello Milky Way
-Column 1: Hello Netherlands, Column 2: Hello Amsterdam
+Name: Jon, Gender: Male, Location: United Kingdom
+Name: John, Gender: Male, Location: United Kingdom
+Name: kashike, Gender: Male, Location: Canada
+Name: Zarthus, Gender: Male, Location: The Netherlands
 ```
 
 ## Positives
