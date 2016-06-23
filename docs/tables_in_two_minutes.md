@@ -42,7 +42,7 @@ Caveat: `JTablesBuilder` is made for `AbstractTable`,
 ## Base Code (AbstractTable)
 
 ```java
-package your.package;
+package your.pkg;
 
 import org.netirc.library.jtables.JTablesBuilder;
 import org.netirc.library.jtables.component.AbstractTable;
