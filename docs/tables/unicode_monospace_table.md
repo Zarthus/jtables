@@ -20,7 +20,6 @@ if (table != null) {
 
 ## Output (horizontal)
 
-The format is a ...
 
 ```
 ┌─────────────────┬─────────────────┬─────────────────┐
@@ -34,8 +33,6 @@ The format is a ...
 ```
 
 ## Output (vertical)
-
-The format is a ...
 
 ```
 ┌──────────┬─────────────────┐

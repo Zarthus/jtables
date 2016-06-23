@@ -20,8 +20,6 @@ if (table != null) {
 
 ## Output (horizontal)
 
-The format is a ...
-
 ```
 +-----------------------------------------------------+
 | Name            | Gender          | Location        |
@@ -35,7 +33,6 @@ The format is a ...
 
 ## Output (vertical)
 
-The format is a ...
 
 ```
 +----------+-----------------+
