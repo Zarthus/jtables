@@ -28,7 +28,7 @@ import org.netirc.library.jtables.JTablesBuilder;
 import org.netirc.library.jtables.exception.MalformedTableException;
 import org.netirc.library.jtables.util.TableHelper;
 
-public class MonospaceTableTest {
+public class MonospaceTableTest extends AbstractTestTable {
     @Test
     public void renderMethodCalledDependsOnColumnCountHorizontal() {
         JTablesBuilder<MonospaceTable> builder = MonospaceTable.build();
@@ -43,6 +43,7 @@ public class MonospaceTableTest {
 
         Assert.assertNotNull(table);
         Assert.assertEquals(table.renderHorizontal(), table.render());
+        ensureLineLengthSame(table);
     }
 
     @Test
@@ -59,5 +60,6 @@ public class MonospaceTableTest {
 
         Assert.assertNotNull(table);
         Assert.assertEquals(table.renderVertical(), table.render());
+        ensureLineLengthSame(table);
     }
 }

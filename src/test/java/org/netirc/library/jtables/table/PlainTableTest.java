@@ -28,7 +28,7 @@ import org.netirc.library.jtables.JTablesBuilder;
 import org.netirc.library.jtables.exception.MalformedTableException;
 import org.netirc.library.jtables.util.TableHelper;
 
-public class PlainTableTest {
+public class PlainTableTest extends AbstractTestTable {
     @Test
     public void keyValueStorage() {
         JTablesBuilder<PlainTable> builder = PlainTable.build();

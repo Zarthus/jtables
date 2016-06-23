@@ -28,7 +28,7 @@ import org.netirc.library.jtables.JTablesBuilder;
 import org.netirc.library.jtables.exception.MalformedTableException;
 import org.netirc.library.jtables.util.TableHelper;
 
-public class UnicodeMonospaceTableTest {
+public class UnicodeMonospaceTableTest extends AbstractTestTable {
     @Test
     public void renderMethodCalledDependsOnColumnCountHorizontal() {
         JTablesBuilder<UnicodeMonospaceTable> builder = UnicodeMonospaceTable.build();
@@ -43,6 +43,7 @@ public class UnicodeMonospaceTableTest {
 
         Assert.assertNotNull(table);
         Assert.assertEquals(table.renderHorizontal(), table.render());
+        ensureLineLengthSame(table);
     }
 
     @Test
@@ -59,6 +60,7 @@ public class UnicodeMonospaceTableTest {
 
         Assert.assertNotNull(table);
         Assert.assertEquals(table.renderVertical(), table.render());
+        ensureLineLengthSame(table);
     }
 
     @Test
@@ -79,5 +81,7 @@ public class UnicodeMonospaceTableTest {
             Assert.assertFalse(row.startsWith("?"));
             Assert.assertFalse(row.endsWith("?"));
         }
+
+        ensureLineLengthSame(table);
     }
 }

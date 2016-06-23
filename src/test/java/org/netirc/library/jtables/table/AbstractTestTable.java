@@ -22,6 +22,19 @@
 
 package org.netirc.library.jtables.table;
 
+import org.junit.Assert;
+import org.netirc.library.jtables.component.TableInterface;
+
 abstract public class AbstractTestTable {
-    public void ensureLineLengthSame()
+    protected void ensureLineLengthSame(TableInterface table) {
+        int initialLength = -1;
+
+        for (String line : table.render()) {
+            if (initialLength == -1) {
+                initialLength = line.length();
+            }
+
+            Assert.assertEquals("Verify if line length is the same. [line = " + line + "]", initialLength, line.length());
+        }
+    }
 }
