@@ -282,12 +282,13 @@
                     <quiet>true</quiet>
                     <encoding>UTF-8</encoding>
                     <strictCheck>true</strictCheck>
-                    <header>${basedir}/HEADER</header>
+                    <header>${basedir}/LICENSE</header>
                     <mapping>
-                        <java>SLASHSTAR_STYLE</java>
+                        <java>JAVADOC_STYLE</java>
                     </mapping>
                     <includes>
                         <include>src/main/java/org/netirc/**</include>
+                        <include>src/test/java/org/netirc/**</include>
                     </includes>
                 </configuration>
             </plugin>
