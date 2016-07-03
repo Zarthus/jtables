@@ -14,7 +14,7 @@ before_install:
   - pip install --user codecov
 
 script:
-  - mvn test
+  - mvn test -P ci
 
 after_success:
   - if [[ "x$TRAVIS_BRANCH" == "xmaster" ]]; then [[ "x$CODECOV_TOKEN" != "x" ]] && codecov -t $CODECOV_TOKEN || codecov; fi
